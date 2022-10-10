@@ -32,7 +32,9 @@ function submit() {
     title.value == null ||
     title.value == "" ||
     pages.value == null ||
-    pages.value == ""
+    pages.value == "" ||
+    author.value == null ||
+    author.value == ""
   ) {
     alert("Please fill all fields!");
     return false;
@@ -77,9 +79,9 @@ function render() {
     cell4.appendChild(changeBut);
     let readStatus = "";
     if (myLibrary[i].check == false) {
-      readStatus = "Yes";
-    } else {
       readStatus = "No";
+    } else {
+      readStatus = "Yes";
     }
     changeBut.innerHTML = readStatus;
 
@@ -94,7 +96,7 @@ function render() {
     cell5.appendChild(delBut);
     delBut.className = "btn btn-warning";
     delBut.innerHTML = "Delete";
-    delBut.addEventListener("clicks", function () {
+    delBut.addEventListener("click", function () {
       alert(`You've deleted title: ${myLibrary[i].title}`);
       myLibrary.splice(i, 1);
       render();
